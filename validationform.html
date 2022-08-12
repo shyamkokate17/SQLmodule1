@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <h1 class="text-success text-centre" > Validation Form</h1>
+     
+    </head>
+ 
+   <body  style="background-color:orange";>
+ 
+ 
+   
+     
+     <div class="container"><br>
+     
+      <div class="col-lg-8 n-auto d-block">
+     
+
+      <form action="*" onsubmit="return vaildation()">
+
+          <div class="form-group">
+         <label><b> Username: </b></label>
+                 
+      <input type="text" name="Username"  size="50" id=User autocomplete="off" /> <br> <br>
+       <span id="Username" class="text-danger"> </span>
+         </div>
+        <div class="form-group">
+         <label> <b>Email:</b> </label>
+           <input type="text" name="Email" size="50" id=emails autocomplete="off"/> <br> <br>
+         <span id="email" class="text-danger"> </span>
+         </div>
+         
+        <div class="form-group">
+         <label><b> Mobile No:</b> </label>
+           <input type="text" name="Phone No" size="50"  id=PhNo autocomplete="off"/> <br> <br>
+        <span id="PhoneNo" class="text-danger"> </span>
+       </div>
+
+           <div class="form-group">
+         <label><b> Password:</b> </label>
+           <input type="text" name="Password" size="10"  id=Pass autocomplete="off"/> <br> <br>
+        <span id="pass" class="Incorrect"> </span>
+       </div>
+            <div class="form-group">
+         <label><b> Confirm Password :</b> </label>
+           <input type="text" name="Confirm Password" size="10"  id=CPass autocomplete="off"/> <br> <br>
+         <span id="cPass" class="incorrect"> </span>
+       </div>
+
+          <input type="Submit" name="Submit" value="Submit" Class="btn
+           btn-success">
+          <input type="Reset" name="Reset" value="Reset" Class="btn
+           btn-success">
+
+
+          </form>
+         </div>
+</div>
+         <script type="text/Javascript">
+     function vaildation(){
+
+     var User =document.getElementById('User').value;
+   var emails=document.getElementById('emails').value;
+     var MobileNo=document.getElementById('MobileNo').value;
+     var Pass =document.getElementById('Pass').value;
+    var CPass=document.getElementById('CPass').value;
+
+ if( User ==""){
+        document.getElementById('Username').innerHTML=" ** Please fill the Username field";
+       return false;
+
+    }
+     if( (User.length <= 2) || ( User.length >10)) {
+             document.getElementById('Username').innerHTML=" ** User length must be between 2 and 10";
+       return false;
+}
+      if(!isNaN(User)) {  
+  document.getElementById('Username').innerHTML=" ** Only character are allowed";
+       return false;
+}
+
+
+
+ if( emails==""){
+        document.getElementById('email').innerHTML=" ** Please fill the email field";
+       return false;
+
+  }
+
+ if( emails.indexOf('@')<=0)  {
+             document.getElementById('email').innerHTML=" ** @ invalid Position ";
+       return false;
+}
+   if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3))!='.'){  
+
+  document.getElementById('email').innerHTML=" ** . invalid Position ";
+       return false;
+}
+
+
+
+if( PhNo==""){
+        document.getElementById('PhoneNo').innerHTML=" ** Please fill the Phone No field";
+       return false;
+  }
+
+    if(isNaN(PhNo)){
+document.getElementById('PhoneNo').innerHTML=" ** Phone number must be write in digits";
+       return false;
+  }
+
+if( PhNo .length!=10){
+             document.getElementById('PhoneNo').innerHTML=" ** User Phone number must be 10 n digits";
+       return false;
+}
+
+
+if( Pass==""){
+        document.getElementById('pass').innerHTML=" ** Please fill the Password field";
+       return false;
+}
+
+if( ( Pass.length >=8) || ( Pass.length >10)) {
+             document.getElementById('pass').innerHTML=" ** password length must be between 8 and 10";
+       return false;
+}
+
+   if( Pass!=CPass){
+     document.getElementById('cPass').innerHTML=" ** Password are not matching";
+       return false;
+}
+
+if( CPass==""){
+        document.getElementById('cPass').innerHTML=" ** Please fill the Confirm Password field";
+       return false;
+}
+
+ 
+}
+function fValidateName()
+{
+var isValid = fCheckRequired( window.document.Form1.txtName, document.getElementById('errName') );
+return isValid;
+}
+
+</script>
+</body>
+</html>
